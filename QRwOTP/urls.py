@@ -21,6 +21,7 @@ urlpatterns = [
     path('', views.loginPage, name="login"),
     path('/validate', views.validateuser, name="validate_login"),
     path('validate_otp', views.validateOTP, name="validate_otp"),
+    path('/validate_mail', views.validate_mail, name="validate_mail"),
     path('register/', views.registerPage, name="register"),
     path('/welcome', views.welcome, name="home")
 ]
