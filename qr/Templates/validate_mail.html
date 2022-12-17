@@ -1,20 +1,77 @@
 
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <style>
+            body {
+                height: 100vh;
+                  width: 100%;
+                background: #0f2027; /* fallback for old browsers */
+                background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                color: #fff;
+              }
+              
+              .form__label {
+                font-family: 'Roboto', sans-serif;
+                font-size: 1.2rem;
+                margin-left: 2rem;
+                margin-top: 0.7rem;
+                display: block;
+                transition: all 0.3s;
+                transform: translateY(0rem);
+              }
+              
+              .form__input {
+                font-family: 'Roboto', sans-serif;
+                color: #333;
+                font-size: 1.2rem;
+                  margin: 0 auto;
+                padding: 1.5rem 2rem;
+                border-radius: 0.2rem;
+                background-color: rgb(255, 255, 255);
+                border: none;
+                width: 90%;
+                display: block;
+                border-bottom: 0.3rem solid transparent;
+                transition: all 0.3s;
+              }
+              
+              .form__input:placeholder-shown + .form__label {
+                opacity: 0;
+                visibility: hidden;
+                -webkit-transform: translateY(-4rem);
+                transform: translateY(-4rem);
+              }
+        </style>
+          
+    </head>
     <body>
         <form action="{% url 'validate_mail' %}" method="post">
             {% csrf_token %}
-        <table align="center" border="2">
-            <tr>
-                <th>
-                    <input type="text" placeholder="OTP" required name = 'otp_mail'>
-                </th>
-            </tr>
-            <tr>
-                <th>
+        {% comment %} <table align="center" border="2"> {% endcomment %}
+            {% comment %} <tr> {% endcomment %}
+                {% comment %} <th> {% endcomment %}
+                    <div class="form__group">
+                    <input type="text" class="form__input" id="name" placeholder="OTP" required name = 'otp_mail'>
+                    <label for="name" class="form__label">OTP</label>
+                </div>
+                {% comment %} </th> {% endcomment %}
+            {% comment %} </tr> {% endcomment %}
+            {% comment %} <tr> {% endcomment %}
+                {% comment %} <th> {% endcomment %}
                     <button type="submit">Check</button>
-                </th>
-            </tr>
-        </table>
+                {% comment %} </th> {% endcomment %}
+            {% comment %} </tr> {% endcomment %}
+        {% comment %} </table> {% endcomment %}
     </form>
     </body>
 </html>

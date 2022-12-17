@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from qr import views
+
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.loginPage, name="login"),
@@ -23,5 +26,7 @@ urlpatterns = [
     path('validate_otp', views.validateOTP, name="validate_otp"),
     path('/validate_mail', views.validate_mail, name="validate_mail"),
     path('register/', views.registerPage, name="register"),
-    path('/welcome', views.welcome, name="home")
-]
+    path('/welcome', views.welcome, name="home"),
+    # path('video_feed/', views.video_feed, name="video-feed")
+    path('readQR/', views.readQR, name="readQR")
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
