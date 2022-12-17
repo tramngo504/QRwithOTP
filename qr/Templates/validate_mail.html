@@ -10,7 +10,6 @@
         <style>
             body {
                 height: 100vh;
-                  width: 100%;
                 background: #0f2027; /* fallback for old browsers */
                 background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
                 display: flex;
@@ -20,7 +19,7 @@
                 color: #fff;
               }
               
-              .form__label {
+              {% comment %} .form__label {
                 font-family: 'Roboto', sans-serif;
                 font-size: 1.2rem;
                 margin-left: 2rem;
@@ -28,20 +27,21 @@
                 display: block;
                 transition: all 0.3s;
                 transform: translateY(0rem);
-              }
+              } {% endcomment %}
               
               .form__input {
                 font-family: 'Roboto', sans-serif;
+                background-position: center;
                 color: #333;
                 font-size: 1.2rem;
                   margin: 0 auto;
-                padding: 1.5rem 2rem;
+                 padding: 1.5rem 2rem;
                 border-radius: 0.2rem;
                 background-color: rgb(255, 255, 255);
                 border: none;
-                width: 90%;
+                width: 100%;
                 display: block;
-                border-bottom: 0.3rem solid transparent;
+                 border-bottom: 0.3rem solid transparent; 
                 transition: all 0.3s;
               }
               
@@ -50,6 +50,37 @@
                 visibility: hidden;
                 -webkit-transform: translateY(-4rem);
                 transform: translateY(-4rem);
+              }
+              .wrap {
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .button {
+                width: 140px;
+                height: 45px;
+                font-family: 'Roboto', sans-serif;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 2.5px;
+                font-weight: 500;
+                color: #000;
+                background-color: #fff;
+                border: none;
+                border-radius: 45px;
+                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease 0s;
+                cursor: pointer;
+                outline: none;
+                margin: 10px;
+                }
+              
+              .button:hover {
+                background-color: #2EE59D;
+                box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+                color: #fff;
+                transform: translateY(-7px);
               }
         </style>
           
@@ -61,14 +92,20 @@
             {% comment %} <tr> {% endcomment %}
                 {% comment %} <th> {% endcomment %}
                     <div class="form__group">
-                    <input type="text" class="form__input" id="name" placeholder="OTP" required name = 'otp_mail'>
-                    <label for="name" class="form__label">OTP</label>
+                    <input type="text" class="form__input" id="name" placeholder="Enter your OTP" required name = 'otp_mail'>
+                    {% comment %} <label for="name" class="form__label">OTP</label> {% endcomment %}
+                    <div class="wrap">
+                      <input class="button" type="submit" value="Submit">
+                  </div>
                 </div>
+                
                 {% comment %} </th> {% endcomment %}
             {% comment %} </tr> {% endcomment %}
             {% comment %} <tr> {% endcomment %}
                 {% comment %} <th> {% endcomment %}
-                    <button type="submit">Check</button>
+                    {% comment %} <button type="submit">Check</button>
+                     {% endcomment %}
+                     {% comment %} <input class="button" type="submit" value="Submit"> {% endcomment %}
                 {% comment %} </th> {% endcomment %}
             {% comment %} </tr> {% endcomment %}
         {% comment %} </table> {% endcomment %}

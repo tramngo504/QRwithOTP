@@ -27,6 +27,5 @@ urlpatterns = [
     path('/validate_mail', views.validate_mail, name="validate_mail"),
     path('register/', views.registerPage, name="register"),
     path('/welcome', views.welcome, name="home"),
-    # path('video_feed/', views.video_feed, name="video-feed")
     path('readQR/', views.readQR, name="readQR")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

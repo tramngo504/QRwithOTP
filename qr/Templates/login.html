@@ -111,7 +111,8 @@
 				</div>
 
 				{% for message in messages %}
-					<p id="messages">{{message}}</p>
+					{% comment %} <p id="messages">{{message}}</p> {% endcomment %}
+					<script>alert("Email has already been registered")</script>
 				{% endfor %}			
 		
 				<div class="mt-4">

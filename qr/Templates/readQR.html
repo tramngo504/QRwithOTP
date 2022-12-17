@@ -4,10 +4,90 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QR Code Validation</title>
+    <link href="./css/style.css" rel="stylesheet">
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-direction: column;
+            height: 100vh;
+          }
+          
+          #display_image{
+            width: 350px;
+            height: 350px;
+            /* margin-top: 20px; */
+            /* border: 4px dashed #1FB264; */
+            background-color: #1FB264;
+            border: 4px dashed #03f664;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+          }
+          #display_image:hover {
+            background-color: #1FB264;
+            border: 4px solid #11f36c;
+          }
+          
+          
+          
+          .file-upload{display:block;text-align:center;font-family: Helvetica, Arial, sans-serif;font-size: 12px;}
+          .file-upload .file-select{display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+          .file-upload .file-select .file-select-button{background:#dce4ec;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+          .file-upload .file-select .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+          .file-upload .file-select:hover{border-color:#34495e;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+          .file-upload .file-select:hover .file-select-button{background:#34495e;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+          .file-upload.active .file-select{border-color:#3fa46a;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+          .file-upload.active .file-select .file-select-button{background:#3fa46a;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+          .file-upload .file-select input[type=file]{z-index:100;cursor:pointer;position:absolute;height:100%;width:100%;top:0;left:0;opacity:0;filter:alpha(opacity=0);}
+          .file-upload .file-select.file-select-disabled{opacity:0.65;}
+          .file-upload .file-select.file-select-disabled:hover{cursor:default;display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;margin-top:5px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+          .file-upload .file-select.file-select-disabled:hover .file-select-button{background:#dce4ec;color:#666666;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+          .file-upload .file-select.file-select-disabled:hover .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+          
+          
+          
+          
+          .wrap {
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            
+            .button {
+              width: 140px;
+              height: 45px;
+              font-family: 'Roboto', sans-serif;
+              font-size: 11px;
+              text-transform: uppercase;
+              letter-spacing: 2.5px;
+              font-weight: 500;
+              color: #000;
+              background-color: #fff;
+              border: none;
+              border-radius: 45px;
+              box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+              transition: all 0.3s ease 0s;
+              cursor: pointer;
+              outline: none;
+              }
+            
+            .button:hover {
+              background-color: #2EE59D;
+              box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+              color: #fff;
+              transform: translateY(-7px);
+            }
+    </style>
 </head>
 <body>
-    <form method="post" action="{% url 'readQR' %}" enctype="multipart/form-data">
+    {% comment %} <form method="post" action="{% url 'readQR' %}" enctype="multipart/form-data">
          {% csrf_token %}
         <p>
             <input type="file" name="file" autocomplete="off" required>
@@ -15,6 +95,44 @@
         <p>
             <input type="submit" value="Submit">
         </p>
-    </form>
+    </form> {% endcomment %}
+    
+    <form method="post" action="{% url 'readQR' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+       {% comment %} <p>
+           <input type="file" name="file" autocomplete="off" required>
+
+       </p> {% endcomment %}
+
+
+       <div id="display_image"></div>
+        <!-- <input type="file" id="image_input" accept="image/png, image/jpg"> -->
+        <div class="file-upload">
+            <div class="file-select">
+              <div class="file-select-button" id="fileName">Choose File</div>
+              <div class="file-select-name" id="noFile">No file chosen...</div> 
+              <!-- <input type="file" name="chooseFile" id="chooseFile"> -->
+              <input type="file" id="chooseFile" name="file" autocomplete="off" accept="image/png, image/jpg" required>
+            </div>
+            <div class="wrap">
+                <input class="button" type="submit" value="Submit">
+                {% comment %} <button class="button">Submit</button> {% endcomment %}
+            </div>
+          </div>
+       
+   </form>
+   <script>
+    const image_input = document.querySelector("#chooseFile");
+    var uploaded_image = "";
+
+    image_input.addEventListener("change", function(){
+    const reader = new FileReader();
+    reader.addEventListener("load", ()=> {
+        uploaded_image = reader.result;
+        document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`
+    });
+    reader.readAsDataURL(this.files[0]);
+    })
+</script>    
 </body>
 </html>
