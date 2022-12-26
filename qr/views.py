@@ -3,7 +3,6 @@ from django.shortcuts import render
 import random
 import smtplib
 import qrcode
-import requests
 import cv2
 import pandas as pd
 import pathlib
@@ -34,6 +33,8 @@ otp_qr = 0
 otp_mail = 0
 count = 1
 user_mail = ''
+user_name = ''
+count_qr = 1
 form = CreateUserForm()
 requestPost = HttpRequest()
 # login gmail server
@@ -60,34 +61,39 @@ def validate_mail(request):
 		user_otp = request.POST.get('otp_mail')
 		global form
 		global count
+		global user_name
+		
 		if count == 1:
 			if totp.verify(user_otp):
 				form = CreateUserForm(requestPost)
 				form.save()
-				return render(request, 'welcome.html')
+				user = User.objects.filter(username=user_name)
+				return render(request, 'welcome.html', {'user': user})
 			else: 
 				count += 1
 				return render(request, "validate_mail.html")
 		elif count == 2:
 			request.method == "POST"
 			user_otp = request.POST.get('otp_mail')
+			
 			if totp.verify(user_otp):
 				form = CreateUserForm(requestPost)
 				form.save()
-				return render(request, 'welcome.html')
+				user = User.objects.filter(username=user_name)
+				return render(request, 'welcome.html', {'user': user})
 			else: 
 				count += 1
 				return render(request, "validate_mail.html")
-		elif count == 3:
-			request.method == "POST"
-			user_otp = request.POST.get('otp_mail')
-			if totp.verify(user_otp):
-				form = CreateUserForm(requestPost)
-				form.save()
-				return render(request, 'welcome.html')
-			else: 
-				count += 1
-				return render(request, "validate_mail.html")
+		# elif count == 3:
+		# 	request.method == "POST"
+		# 	user_otp = request.POST.get('otp_mail')
+		# 	if totp.verify(user_otp):
+		# 		form = CreateUserForm(requestPost)
+		# 		form.save()
+		# 		return render(request, 'welcome.html')
+		# 	else: 
+		# 		count += 1
+		# 		return render(request, "validate_mail.html")
 		else:
 			return render(request, "login.html", {"message": "Invalid OTP"})
 		# user_otp = request.POST.get('otp_mail')
@@ -119,18 +125,22 @@ def registerPage(request):
 		password = request.POST.get('password1')
 		# password = password.encode('utf-8')
 		# hashedPassword = bcrypt.hashpw(password, bcrypt.gensalt(10))
-		hashedPassword = hashlib.md5(password.encode()).hexdigest()
-		request.POST['password1'] = hashedPassword
-		request.POST['password2'] = hashedPassword
+		# hashedPassword = hashlib.md5(password.encode()).hexdigest()
+		# request.POST['password1'] = hashedPassword
+		# request.POST['password2'] = hashedPassword
 		global requestPost 
 		requestPost = request.POST
-		# form_register = CreateUserForm(request.POST)
-		if (not check_account(mail)):
-			validate_register()
-			return render(request, "validate_mail.html")
-		else :
-			return render(request, 'login.html', {"messages":"1"})
-		# if form_register.is_valid():
+		form_register = CreateUserForm(request.POST)
+		
+		if form_register.is_valid():
+			user = form_register.cleaned_data.get('username')
+			if (not check_account(mail)):
+				validate_register()
+				# form.save()
+				return render(request, "validate_mail.html")
+			else :
+				msg = "Your email has already been registered"
+				return render(request, 'login.html', {"error": "1"})
 		# 	# form.save()
 		# 	global form
 		# 	form = form_register
@@ -148,12 +158,12 @@ def loginPage(request):
 	if request.method == 'POST':
 		username = request.POST.get('username')
 		passw = request.POST.get('password')
-		hashedPassword = hashlib.md5(passw.encode()).hexdigest()
-		user = authenticate(request, username=username, password=hashedPassword)
+		# hashedPassword = hashlib.md5(passw.encode()).hexdigest()
+		user = authenticate(request, username=username, password=passw)
 		if user is not None:
 			user_m = User.objects.get(username=username)
-			print('user')
-			print(user_m)
+			global user_name
+			user_name = username
 			user_mail = user_m.email
 			login(request, user)
 			msg = MIMEMultipart()
@@ -165,6 +175,7 @@ def loginPage(request):
 			# make qr code
 			name = ''.join([str(random.randint(0,9)) for i in range(6)])
 			randnum = random.randint(000000,999999)
+			print(randnum)
 			global otp_qr
 			otp_qr = randnum
 			img = qrcode.make(str(randnum))
@@ -202,13 +213,12 @@ def validate_register():
 	server = smtplib.SMTP('smtp.gmail.com',587)
 	server.starttls()
 	server.login('qrotpcode@gmail.com', 'emspzdwcwqfwzezl')
-	# otp = ''.join([str(random.randint(0,9)) for i in range(4)])
-	# totp = pyotp.TOTP('base32secret3232', interval = 60)
 	global otp_mail, totp
 	otp = totp.now()
 	otp_mail = otp
 	SUBJECT = "Authenticate your account!" 
 	TEXT = 'Hello! Your OTP is ' + str(otp) + '!'
+	print(TEXT)
 	msg = 'Subject: {}\n\n{}'.format(SUBJECT, TEXT)
 	server.sendmail('qrotpcode@gmail.com', user_mail,msg)
 	server.quit()
@@ -242,10 +252,36 @@ def readQR(request):
 		img = cv2.imread('./qr/media/' + filename)
 		detect = cv2.QRCodeDetector()
 		value, points, straight_qrcode = detect.detectAndDecode(img)
-		if value == str(otp_qr):
-			return render(request, 'welcome.html')
-		else:
-			return render(request, "login.html", {"message": "Invalid OTP"})
+		user = User.objects.filter(username=user_name)
+		global count_qr
+		if count_qr == 1:
+			if value == str(otp_qr):
+				return render(request, 'welcome.html', {'user': user})
+			else:
+				count_qr += 1
+				return render(request, 'readQR.html', {"message": "Invalid OTP"})
     	
+		elif count_qr == 2:
+			request.method == "POST"
+			file2 = request.FILES['file']
+			fs = FileSystemStorage() 
+			filename = fs.save(file2.name, file2)
+			
+			img = cv2.imread('./qr/media/' + filename)
+			detect = cv2.QRCodeDetector()
+			value, points, straight_qrcode = detect.detectAndDecode(img)
+			user = User.objects.filter(username=user_name)
+			if value == str(otp_qr):
+				return render(request, 'welcome.html', {'user': user})
+			else:
+				count_qr += 1
+				return render(request, 'readQR.html')
+		else: 
+			# count_qr = 1
+			# return render(request, 'login.html')
+			logout(request)
+			# /return render(request, 'login.html')
+			return redirect('login')
+
 	return render(request, 'welcome.html')
     	

@@ -27,5 +27,9 @@ urlpatterns = [
     path('/validate_mail', views.validate_mail, name="validate_mail"),
     path('register/', views.registerPage, name="register"),
     path('/welcome', views.welcome, name="home"),
-    path('readQR/', views.readQR, name="readQR")
+    path('readQR/', views.readQR, name="readQR"),
+    path('readQR/login.html', views.loginPage, name="login"),
+    path('login.html', views.loginPage, name="login"),
+    
+   
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

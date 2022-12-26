@@ -1,109 +1,432 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-body {font-family: "Times New Roman", Georgia, Serif;}
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display";
-  letter-spacing: 5px;
-}
-</style>
-</head>
-<body>
-
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="#home" class="w3-bar-item w3-button">Gourmet au Catering</a>
-    <!-- Right-sided navbar links. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">About</a>
-      <a href="#menu" class="w3-bar-item w3-button">Menu</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-    </div>
-  </div>
-</div>
-
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <img class="w3-image" src="/w3images/hamburger.jpg" alt="Hamburger Catering" width="1600" height="800">
-  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
-    <h1 class="w3-xxlarge">Le Catering</h1>
-  </div>
-</header>
-
-<!-- Page content -->
-<div class="w3-content" style="max-width:1100px">
-
-  <!-- About Section -->
-  <div class="w3-row w3-padding-64" id="about">
-    <div class="w3-col m6 w3-padding-large w3-hide-small">
-     <img src="/w3images/tablesetting2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
-    </div>
-
-    <div class="w3-col m6 w3-padding-large">
-      <h1 class="w3-center">About Catering</h1><br>
-      <h5 class="w3-center">Tradition since 1889</h5>
-      <p class="w3-large">The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use <span class="w3-tag w3-light-grey">seasonal</span> ingredients.</p>
-      <p class="w3-large w3-text-grey w3-hide-medium">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-  </div>
-  
-  <hr>
-  
-  <!-- Menu Section -->
-  <div class="w3-row w3-padding-64" id="menu">
-    <div class="w3-col l6 w3-padding-large">
-      <h1 class="w3-center">Our Menu</h1><br>
-      <h4>Bread Basket</h4>
-      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
-    
-      <h4>Honey Almond Granola with Fruits</h4>
-      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
-    
-      <h4>Belgian Waffle</h4>
-      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
-    
-      <h4>Scrambled eggs</h4>
-      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
-    
-      <h4>Blueberry Pancakes</h4>
-      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>    
-    </div>
-    
-    <div class="w3-col l6 w3-padding-large">
-      <img src="/w3images/tablesetting.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- Contact Section -->
-  <div class="w3-container w3-padding-64" id="contact">
-    <h1>Contact</h1><br>
-    <p>We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste. Do not hesitate to contact us.</p>
-    <p class="w3-text-blue-grey w3-large"><b>Catering Service, 42nd Living St, 43043 New York, NY</b></p>
-    <p>You can also contact us by phone 00553123-2323 or email catering@catering.com, or you can send us a message here:</p>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="number" placeholder="How many people" required name="People"></p>
-      <p><input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
-      <p><button class="w3-button w3-light-grey w3-section" type="submit">SEND MESSAGE</button></p>
-    </form>
-  </div>
-  
-<!-- End page content -->
-</div>
-
-<!-- Footer -->
-<footer class="w3-center w3-light-grey w3-padding-32">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer>
-
-</body>
+<html lang="en">
+   
+   <head>
+      {% load static %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+      <title>Dashboard</title>
+      <link rel="shortcut icon" href="qr/assets/img/favicon.png">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
+      <link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href=" {%static 'assets/plugins/fontawesome/css/fontawesome.min.css'%}">
+      <link rel="stylesheet" href=" {%static 'assets/plugins/fontawesome/css/all.min.css' %}">
+      <link rel="stylesheet" href=" {%static 'assets/css/style.css' %}">
+   </head>
+   <body>
+      <div class="main-wrapper">
+         <div class="header">
+            <div class="header-left">
+               <a href="index.html" class="logo">
+               <img src="{%static 'assets/img/logo.png' %}" alt="Logo">
+               </a>
+               <a href="index.html" class="logo logo-small">
+               <img src="{%static 'assets/img/logo-small.png' %}" alt="Logo" width="30" height="30">
+               </a>
+            </div>
+            <a href="javascript:void(0);" id="toggle_btn">
+            <i class="fas fa-align-left"></i>
+            </a>
+            <div class="top-nav-search">
+               <form>
+                  <input type="text" class="form-control" placeholder="Search here">
+                  <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+               </form>
+            </div>
+            <a class="mobile_btn" id="mobile_btn">
+            <i class="fas fa-bars"></i>
+            </a>
+            <ul class="nav user-menu">
+               <div class="user-text">
+                  {%for u in user%}
+                  <h4 style="color:Tomato;">{{u.username}}</h4>
+                  <h4 class="text-muted mb-0">{{u.email}}</h4>
+                  {%endfor%}
+               </div>
+               <!-- <li class="nav-item dropdown noti-dropdown">
+                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <i class="far fa-bell"></i> <span class="badge badge-pill">3</span>
+                  </a>
+                  
+               </li> -->
+               {% comment %} <li class="nav-item dropdown has-arrow">
+                  {% comment %} <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <span class="user-img"><img class="rounded-circle" src="{%static 'assets/img/profiles/avatar-01.jpg' %}" width="31" alt="Ryan Taylor"></span>
+                  </a> {% endcomment %}
+                  {% comment %} <div class="dropdown-menu">
+                     <div class="user-header"> {% endcomment %}
+                        {% comment %} <div class="avatar avatar-sm">
+                           <img src="{%static 'assets/img/profiles/avatar-01.jpg' %}" alt="User Image" class="avatar-img rounded-circle">
+                        </div> {% endcomment %}
+                        
+                        {% comment %} {% for u in user%}
+                        <div class="user-text">
+                           <h6>{{u.username}}</h6>
+                           <p class="text-muted mb-0">{{u.email}}</p>
+                        </div>
+                        {{break}}
+                        {% endfor%} {% endcomment %}
+                     {% comment %} </div>
+                  </div>
+               </li> {% endcomment %} 
+            </ul>
+         </div>
+         <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+               <div id="sidebar-menu" class="sidebar-menu">
+                  <ul>
+                     
+                     <li class="submenu">
+                        <a href="#"><i class="fas fa-user-graduate"></i> <span> Students</span> <span class="menu-arrow"></span></a>
+                        <ul>
+                           <li><a href="students.html">Student List</a></li>
+                           <li><a href="student-details.html">Student View</a></li>
+                           <li><a href="add-student.html">Student Add</a></li>
+                           <li><a href="edit-student.html">Student Edit</a></li>
+                        </ul>
+                     </li>
+                      <li class="submenu">
+                        <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span> <span class="menu-arrow"></span></a>
+                        <ul>
+                           <li><a href="teachers.html">Teacher List</a></li>
+                           <li><a href="teacher-details.html">Teacher View</a></li>
+                           <li><a href="add-teacher.html">Teacher Add</a></li>
+                           <li><a href="edit-teacher.html">Teacher Edit</a></li>
+                        </ul>
+                     </li> 
+                     {% comment %} <li class="submenu">
+                        <a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span class="menu-arrow"></span></a>
+                        <ul>
+                           <li><a href="departments.html">Department List</a></li>
+                           <li><a href="add-department.html">Department Add</a></li>
+                           <li><a href="edit-department.html">Department Edit</a></li>
+                        </ul>
+                     </li> {% endcomment %}
+                     <li class="submenu">
+                        <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
+                        <ul>
+                           <li><a href="subjects.html">Subject List</a></li>
+                           <li><a href="add-subject.html">Subject Add</a></li>
+                           <li><a href="edit-subject.html">Subject Edit</a></li>
+                        </ul>
+                     </li>
+                     {% comment %} <li class="menu-title">
+                        <span>Management</span>
+                     </li>
+                      {% endcomment %}
+                     
+                     <li>
+                        <a href="event.html"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
+                     </li>
+                     <li>
+                        <a href="time-table.html"><i class="fas fa-table"></i> <span>Time Table</span></a>
+                     </li>
+                     
+                     
+                     {% comment %} <li class="submenu">
+                        <a href="#"><i class="fas fa-shield-alt"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
+                        <ul>
+                           <li><a href="login.html">Login</a></li>
+                           <li><a href="register.html">Register</a></li>
+                           <li><a href="forgot-password.html">Forgot Password</a></li>
+                           <li><a href="error-404.html">Error Page</a></li>
+                        </ul>
+                     </li> {% endcomment %}
+                     
+                     
+                     
+                     <li class="menu-title">
+                        <a href="./login.html"> <span>Logout</span></a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="page-wrapper">
+            <div class="content container-fluid">
+               <div class="page-header">
+                  <div class="row">
+                     <div class="col-sm-12">
+                        <h3 class="page-title">Welcome!</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item active">Dashboard</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                     <div class="card bg-one w-100">
+                        <div class="card-body">
+                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                              <div class="db-icon">
+                                 <i class="fas fa-user-graduate"></i>
+                              </div>
+                              <div class="db-info">
+                                 <h3>50055</h3>
+                                 <h6>Students</h6>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                     <div class="card bg-two w-100">
+                        <div class="card-body">
+                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                              <div class="db-icon">
+                                 <i class="fas fa-crown"></i>
+                              </div>
+                              <div class="db-info">
+                                 <h3>50+</h3>
+                                 <h6>Awards</h6>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                     <div class="card bg-three w-100">
+                        <div class="card-body">
+                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                              <div class="db-icon">
+                                 <i class="fas fa-building"></i>
+                              </div>
+                              <div class="db-info">
+                                 <h3>30+</h3>
+                                 <h6>Department</h6>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                     <div class="card bg-four w-100">
+                        <div class="card-body">
+                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                              <div class="db-icon">
+                                 <i class="fas fa-file-invoice-dollar"></i>
+                              </div>
+                              <div class="db-info">
+                                 <h3>$505</h3>
+                                 <h6>Revenue</h6>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12 col-lg-6">
+                     <div class="card card-chart">
+                        <div class="card-header">
+                           <div class="row align-items-center">
+                              <div class="col-6">
+                                 <h5 class="card-title">Revenue</h5>
+                              </div>
+                              <div class="col-6">
+                                 <ul class="list-inline-group text-right mb-0 pl-0">
+                                    <li class="list-inline-item">
+                                       <div class="form-group mb-0 amount-spent-select">
+                                          <select class="form-control form-control-sm">
+                                             <option>Today</option>
+                                             <option>Last Week</option>
+                                             <option>Last Month</option>
+                                          </select>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card-body">
+                           <div id="apexcharts-area"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6">
+                     <div class="card card-chart">
+                        <div class="card-header">
+                           <div class="row align-items-center">
+                              <div class="col-6">
+                                 <h5 class="card-title">Number of Students</h5>
+                              </div>
+                              <div class="col-6">
+                                 <ul class="list-inline-group text-right mb-0 pl-0">
+                                    <li class="list-inline-item">
+                                       <div class="form-group mb-0 amount-spent-select">
+                                          <select class="form-control form-control-sm">
+                                             <option>Today</option>
+                                             <option>Last Week</option>
+                                             <option>Last Month</option>
+                                          </select>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card-body">
+                           <div id="bar"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6 d-flex">
+                     <div class="card flex-fill">
+                        <div class="card-header">
+                           <h5 class="card-title">Star Students</h5>
+                        </div>
+                        <div class="card-body">
+                           <div class="table-responsive">
+                              <table class="table table-hover table-center">
+                                 <thead class="thead-light">
+                                    <tr>
+                                       <th>ID</th>
+                                       <th>Name</th>
+                                       <th class="text-center">Marks</th>
+                                       <th class="text-center">Percentage</th>
+                                       <th class="text-right">Year</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td class="text-nowrap">
+                                          <div>PRE2209</div>
+                                       </td>
+                                       <td class="text-nowrap">John Smith</td>
+                                       <td class="text-center">1185</td>
+                                       <td class="text-center">98%</td>
+                                       <td class="text-right">
+                                          <div>2019</div>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td class="text-nowrap">
+                                          <div>PRE1245</div>
+                                       </td>
+                                       <td class="text-nowrap">Jolie Hoskins</td>
+                                       <td class="text-center">1195</td>
+                                       <td class="text-center">99.5%</td>
+                                       <td class="text-right">
+                                          <div>2018</div>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td class="text-nowrap">
+                                          <div>PRE1625</div>
+                                       </td>
+                                       <td class="text-nowrap">Pennington Joy</td>
+                                       <td class="text-center">1196</td>
+                                       <td class="text-center">99.6%</td>
+                                       <td class="text-right">
+                                          <div>2017</div>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td class="text-nowrap">
+                                          <div>PRE2516</div>
+                                       </td>
+                                       <td class="text-nowrap">Millie Marsden</td>
+                                       <td class="text-center">1187</td>
+                                       <td class="text-center">98.2%</td>
+                                       <td class="text-right">
+                                          <div>2016</div>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td class="text-nowrap">
+                                          <div>PRE2209</div>
+                                       </td>
+                                       <td class="text-nowrap">John Smith</td>
+                                       <td class="text-center">1185</td>
+                                       <td class="text-center">98%</td>
+                                       <td class="text-right">
+                                          <div>2015</div>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 d-flex">
+                     <div class="card flex-fill">
+                        <div class="card-header">
+                           <h5 class="card-title">Student Activity</h5>
+                        </div>
+                        <div class="card-body">
+                           <ul class="activity-feed">
+                              <li class="feed-item">
+                                 <div class="feed-date">Apr 13</div>
+                                 <span class="feed-text"><a>John Doe</a> won 1st place in <a>"Chess"</a></span>
+                              </li>
+                              <li class="feed-item">
+                                 <div class="feed-date">Mar 21</div>
+                                 <span class="feed-text"><a>Justin Lee</a> participated in <a href="invoice.html">"Carrom"</a></span>
+                              </li>
+                              <li class="feed-item">
+                                 <div class="feed-date">Feb 2</div>
+                                 <span class="feed-text"><a>Justin Lee</a>attended internation conference in <a href="profile.html">"St.John School"</a></span>
+                              </li>
+                              <li class="feed-item">
+                                 <div class="feed-date">Apr 13</div>
+                                 <span class="feed-text"><a>John Doe</a> won 1st place in <a>"Chess"</a></span>
+                              </li>
+                              <li class="feed-item">
+                                 <div class="feed-date">Mar 21</div>
+                                 <span class="feed-text"><a>Justin Lee</a> participated in <a href="invoice.html">"Carrom"</a></span>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xl-3 col-sm-6 col-12">
+                     <div class="card flex-fill fb sm-box">
+                        <i class="fab fa-facebook"></i>
+                        <h6>50,095</h6>
+                        <p>Likes</p>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12">
+                     <div class="card flex-fill twitter sm-box">
+                        <i class="fab fa-twitter"></i>
+                        <h6>48,596</h6>
+                        <p>Follows</p>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12">
+                     <div class="card flex-fill insta sm-box">
+                        <i class="fab fa-instagram"></i>
+                        <h6>52,085</h6>
+                        <p>Follows</p>
+                     </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12">
+                     <div class="card flex-fill linkedin sm-box">
+                        <i class="fab fa-linkedin-in"></i>
+                        <h6>69,050</h6>
+                        <p>Follows</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <footer>
+               <p>Copyright © 2020 Dreamguys.</p>
+            </footer>
+         </div>
+      </div>
+      <script src="{%static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{%static 'assets/js/popper.min.js' %}"></script>
+      <script src="{%static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+      <script src="{%static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+      <script src="{%static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+      <script src="{%static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+      <script src="{%static 'assets/js/script.js' %}"></script>
+   </body>
+   
 </html>

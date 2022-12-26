@@ -110,11 +110,11 @@
 
 				</div>
 
-				{% for message in messages %}
+				{% comment %} {% for e in error %}
 					{% comment %} <p id="messages">{{message}}</p> {% endcomment %}
-					<script>alert("Email has already been registered")</script>
-				{% endfor %}			
-		
+					{% comment %} <script>alert("Email has already been registered")</script>
+				{% endfor %}			 {% endcomment %} 
+				
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
